@@ -1,0 +1,44 @@
+<div class="animated fadeIn">
+  <div class="card" > 
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Transaction Report
+    </div>
+    <div>
+      <select name="multipleSelect" id="multipleSelect" [(ngModel)]="TranscationTypeId" >
+        <option value="5">Withdrawal</option>
+        <option value="6">Direct Income</option>
+        <option value="3">Binary Income</option>
+        <option value="8">Matching Bonus</option>
+        <option value="1">Received Fund</option>
+        <option value="14">Transfered Fund</option>
+        <option value="15">Transfered Coin</option>
+        <option value="16">Received Coin</option>
+        <option value="17">Purchase</option>
+      </select>
+    </div>
+    <!-- <option value="6">Direct Income</option>
+        <option value="7">Binary Income</option>
+        <option value="8">Matching Bonus</option> -->
+    <div >
+      <button type="save" (click)="onChange();" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Search </button>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Transaction Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transfer of TransferData">
+            <td><span *ngIf="transfer.RefUserName">{{transfer.CustomerUserName}}</span></td>
+            <td>{{transfer.FinalAmountRaw}} </td>
+            <td>{{transfer.TransactionDate |  date:'mediumDate'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
